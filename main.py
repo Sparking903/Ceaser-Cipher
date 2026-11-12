@@ -1,6 +1,12 @@
+import subprocess
 
-TestedText = input("Enter the text to be decoded: ")
+#TestedText = input("Enter the text to be decoded: ")
 
-print(TestedText)
+result = subprocess.run(
+    ["ls"],
+    capture_output=True,
+    text=True,
+    check=True
+)
 
-
+print(result.stdout)
