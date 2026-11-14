@@ -23,3 +23,6 @@ if EoD == "D":
     print(decodedPossiblities)
     print(tempText)
 else: print((chr)(ord(' ') + 1)) 
+
+def compareList():
+    print("Joe mama")
