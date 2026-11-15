@@ -1,3 +1,21 @@
+def compareList(listToTest, index):
+    possibleSolves = []
+    print(listToTest) #Test print
+    wordFile = open("words.txt")
+    wordsList = []
+    for word in wordFile:
+        wordsList.append(word.strip().lower())
+    for item in listToTest:
+        print(item.split()[index]) #Test print
+        for comparedWordInList in wordsList:
+            if(((item.split())[index]).strip().lower() == comparedWordInList.strip()): possibleSolves.append(item)
+    print(possibleSolves) #Test print
+    print(len(listToTest[0].split()))
+    if (len(possibleSolves) > 1 and len(listToTest[0].split()) > index + 1): possibleSolves = compareList(possibleSolves, index + 1)
+    return possibleSolves
+        
+
+
 EoD = input("Enter E for encoding. Enter D for Decoding: ")
 if EoD == "D":
     TestedText = input("Enter the text to be decoded: ")
@@ -16,13 +34,10 @@ if EoD == "D":
                     if (ord(letter) + i > 90):       
                         decodedText += chr((ord(letter) + i) - 26) 
                     else: decodedText += chr((ord(letter) + i))
-            #print(decodedText)
+
             decodedText += " "
         decodedPossiblities.append(decodedText.strip())
 
-    print(decodedPossiblities)
-    print(tempText)
+    print(compareList(decodedPossiblities, 0))
 else: print((chr)(ord(' ') + 1)) 
 
-def compareList():
-    print("Joe mama")
