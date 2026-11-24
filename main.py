@@ -1,5 +1,6 @@
 from pathlib import Path
 wordFile = Path(__file__).with_name("words.txt")
+
 wordsList = []
 with wordFile.open() as f:
     for word in f:
@@ -42,8 +43,7 @@ if EoD == "D":
             tempIndex = 0
             if (ord(char) <= 64 and ord(char) != 32 ): possiblity = possiblity[:index - tempIndex] + char + possiblity[index - tempIndex:]
         print(possiblity)
-            
-        
+         
 elif EoD == "E":
     Msg = input("Please enter the message you desire to be rotated: ")
     while(True):
@@ -69,8 +69,5 @@ elif EoD == "E":
         decodedText += " "
     print(decodedText)
     
-
-
-
 
 
