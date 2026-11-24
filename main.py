@@ -7,14 +7,10 @@ with wordFile.open() as f:
 
 def compareList(listToTest, index):
     possibleSolves = []
-    #print(listToTest) #Test print
     for item in listToTest:
-        #print(item.split()[index]) #Test print
         for comparedWordInList in wordsList:
             if(((item.split())[index]).strip().lower() == comparedWordInList.strip()): possibleSolves.append(item); break
-    #print(possibleSolves) #Test print
-    if (len(possibleSolves) > 1 and len(listToTest[0].split()) > index + 1): possibleSolves = compareList(possibleSolves, index + 1)# and print("Next Call")
-    return possibleSolves
+    if (len(possibleSolves) > 1 and len(listToTest[0].split()) > index + 1): possibleSolves = compareList(possibleSolves, index + 1)
         
 
 
@@ -56,7 +52,22 @@ elif EoD == "E":
             RoT = int(RoT)
         except: print("Please enter a proper Int value")
         else: break
-
+    RoT = abs(RoT)
+    tempText = Msg.split(" ")
+    decodedText = ""
+    decodedPossiblities = []
+    for word in tempText:
+        for letter in word:
+            if (ord(letter) >= 97):
+                if (ord(letter) + RoT > 122):       
+                    decodedText += chr((ord(letter) + RoT) - 26) 
+                else: decodedText += chr((ord(letter) + RoT))
+            elif(ord(letter) >= 65 and ord(letter) < 97):
+                if (ord(letter) + RoT > 90):
+                    decodedText += chr((ord(letter) + RoT) - 26) 
+                else: decodedText += chr((ord(letter) + RoT))
+        decodedText += " "
+    print(decodedText)
     
 
 
