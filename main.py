@@ -48,5 +48,18 @@ if EoD == "D":
         print(possiblity)
             
         
-else: print((chr)(ord(' ') + 1)) 
+elif EoD == "E":
+    Msg = input("Please enter the message you desire to be rotated: ")
+    while(True):
+        RoT = input("Please enter the rotational value for encoding: ")
+        try:
+            RoT = int(RoT)
+        except: print("Please enter a proper Int value")
+        else: break
+
+    
+
+
+
+
 
