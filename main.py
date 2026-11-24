@@ -1,7 +1,9 @@
-wordFile = open("words.txt")
+from pathlib import Path
+wordFile = Path(__file__).with_name("words.txt")
 wordsList = []
-for word in wordFile:
-    wordsList.append(word.strip().lower())
+with wordFile.open() as f:
+    for word in f:
+        wordsList.append(word.strip().lower())
 
 def compareList(listToTest, index):
     possibleSolves = []
